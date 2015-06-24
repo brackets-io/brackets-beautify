@@ -1,38 +1,20 @@
 {
-    "name": "brackets-beautify",
-    "title": "Beautify",
-    "version": "1.1.6",
-    "description": "Format JavaScript, HTML, and CSS files",
-    "homepage": "https://github.com/drewhamlett/brackets-beautify",
-    "author": "Drew Hamlett i@drewh.me (https://github.com/drewhamlett/)",
+    "name": "hirse.beautify",
+    "version": "1.0.0",
+    "title": "Brackets Beautify",
+    "description": "Format JavaScript, HTML, and CSS files and related languages. This is a fork of drewhamlett's Beautify extension using the latest (1.5.7) version of the js-beautify library.",
+    "engines": {
+        "brackets": ">=1.3.0"
+    },
+    "homepage": "https://github.com/Hirse/brackets-beautify",
+    "author": "Jan Pilzer (https://github.com/Hirse)",
     "license": "MIT",
     "categories":"formatting",
-    "keywords": [
-        "format",
-        "formatting",
-        "beautify",
-        "jsbeautify",
-        "javascript formatting",
-        "html formatting",
-        "css formatting",
-        "tidy",
-        "tidy html",
-        "tidy css",
-        "tidy javascript",
-        "pretty",
-        "prettify",
-        "sass format",
-        "scss format",
-        "sass",
-        "scss",
-        "sass beautify",
-        "sass tidy"
-    ],
-    "files": [
-        "main.js",
-        "settings.json"
-    ],
-    "engines": {
-        "brackets": ">=0.22.0"
+    "keywords": ["beautify", "beautifier", "format", "formatting", "tidy", "pretty", "prettify", "JavaScript", "CSS", "XML", "HTML", "SVG"],
+    "i18n": ["de", "en", "es", "it", "ja"],
+    "package-i18n": {
+        "de": {
+            "description": "Formatiere JavaScript, HTML, und CSS Dateien und verwandte Sprachen. Dies ist ein Fork von drewhamlett's Beautify extension, der die neueste (1.5.7) version der js-beautify Bibliothek verwendet."
+        }
     }
 }
