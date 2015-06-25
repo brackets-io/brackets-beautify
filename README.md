@@ -1,5 +1,5 @@
 # Brackets Beautify
-[Brackets](http://brackets.io/) Extension that formats open HTML, CSS, and JavaScript files using [js-beautify](https://github.com/beautify-web/js-beautify) version [1.57](https://github.com/beautify-web/js-beautify/blob/master/CHANGELOG.md#v157).
+[Brackets](http://brackets.io/) Extension that formats open HTML, CSS, and JavaScript files using [js-beautify](https://github.com/beautify-web/js-beautify) version [1.5.10](https://github.com/beautify-web/js-beautify/blob/master/CHANGELOG.md#v1510).
 
 This is a fork of [drewhamlett](https://github.com/drewhamlett)'s [brackets-beautify](https://github.com/drewhamlett/brackets-beautify) extension that I have created due to the disappointing maintenance of the original.
 

@@ -4,6 +4,11 @@ This project tries to adhere to [Semantic Versioning](http://semver.org/).
 Changes for version 1.0.0 describe differences to the [original project](https://github.com/drewhamlett/brackets-beautify).
 
 
+## 1.0.1 - 2015-06-25
+### Changed
+- Updated js-beautify to version 1.5.10
+
+
 ## 1.0.0 - 2015-06-24
 ### Added
 - Use Brackets Preferences language and path layer to configure `Beautify on save`
