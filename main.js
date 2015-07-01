@@ -1,8 +1,9 @@
 define(function (require) {
     'use strict';
 
-    var COMMAND_ID = 'hirse.beautify';
-    var COMMAND_SAVE_ID = COMMAND_ID + '.autosave';
+    var PREFIX = 'hirse.beautify';
+    var COMMAND_ID = PREFIX + '.beautify';
+    var COMMAND_SAVE_ID = PREFIX + '.autosave';
 
     /* beautify preserve:start */
     var CommandManager     = brackets.getModule('command/CommandManager');
@@ -30,7 +31,7 @@ define(function (require) {
 
     var settingsFileName = '.jsbeautifyrc';
     var settings = JSON.parse(require('text!default.jsbeautifyrc'));
-    var beautifyPrefs = PreferencesManager.getExtensionPrefs(COMMAND_ID);
+    var beautifyPrefs = PreferencesManager.getExtensionPrefs(PREFIX);
     var keyBindings = [
         {
             key: 'Cmd-Shift-L',
