@@ -34,10 +34,16 @@ define(function (require) {
     var beautifyPrefs = PreferencesManager.getExtensionPrefs(PREFIX);
     var keyBindings = [
         {
+            key: 'Ctrl-Shift-L',
+            platform: 'win'
+        }, {
+            key: 'Ctrl-Alt-B',
+            platform: 'win'
+        }, {
             key: 'Cmd-Shift-L',
             platform: 'mac'
         }, {
-            key: 'Ctrl-Shift-L'
+            key: 'Ctrl-Alt-B'
         }
     ];
 

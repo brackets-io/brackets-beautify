@@ -1,6 +1,6 @@
 {
     "name": "hirse.beautify",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "title": "Brackets Beautify",
     "description": "Format JavaScript, HTML, and CSS files and related languages. This is a fork of drewhamlett's Beautify extension using the latest version (1.5.10) of the js-beautify library.",
     "engines": {

@@ -12,10 +12,11 @@ To install the latest _commit_ of this extension use the built-in Brackets [Exte
 
 ## Usage
 Brackets Beautify can be run manually on the whole file or on a selection.
-Use the menu entry `Edit > Beautify`, the context-menu entry `Beautify`, or the keyboard shortcut `Cmd-Shift-L` (Mac) / `Ctrl-Shift-L` (Win).
+Use the menu entry `Edit > Beautify`, the context-menu entry `Beautify`, or one of the keyboard shortcuts `Ctrl-Alt-B` (Windows/Linux), `Ctrl-Shift-L` (Windows), `Cmd-Shift-L` (Mac), or [define your own](https://github.com/Hirse/brackets-beautify#user-key-map-for-beautify).
+
 
 Alternatively it can be enabled to run automatically on save.
-Use the menu entry `Edit > Beautify on save` or the more [advanced settings](https://github.com/Hirse/brackets-beautify#File-Options-for-Beautify-on-Save) to activate.
+Use the menu entry `Edit > Beautify on save` or the more [advanced settings](https://github.com/Hirse/brackets-beautify#file-options-for-beautify-on-save) to activate.
 
 ### Configuration
 #### Beautifier Options
@@ -83,6 +84,18 @@ The sample `.brackets.json` below generally enables `Beautify on save` and disab
         "php": {
             "hirse.beautify.onSave": false
         }
+    }
+}
+```
+
+#### User Key Map for Beautify
+Open the `keymap.json` with the menu entry `Debug > Open User Key Map` and add an _overrides_ entry.  
+For example:
+```js
+{
+    "documentation": "https://github.com/adobe/brackets/wiki/User-Key-Bindings",
+    "overrides": {
+        "Ctrl-Alt-F": "hirse.beautify.beautify"
     }
 }
 ```
