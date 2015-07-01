@@ -4,7 +4,7 @@ define(function (require) {
     var COMMAND_ID = 'hirse.beautify';
     var COMMAND_SAVE_ID = COMMAND_ID + '.autosave';
 
-    /* beautify ignore:start */
+    /* beautify preserve:start */
     var CommandManager     = brackets.getModule('command/CommandManager');
     var Commands           = brackets.getModule('command/Commands');
     var Menus              = brackets.getModule('command/Menus');
@@ -19,7 +19,7 @@ define(function (require) {
     var AppInit            = brackets.getModule('utils/AppInit');
     var DefaultDialogs     = brackets.getModule('widgets/DefaultDialogs');
     var Dialogs            = brackets.getModule('widgets/Dialogs');
-    /* beautify ignore:end */
+    /* beautify preserve:end */
 
     var Strings = require('strings');
     var beautifiers = {
@@ -68,28 +68,28 @@ define(function (require) {
         var beautifierType;
         var document = DocumentManager.getCurrentDocument();
         switch (document.getLanguage().getId()) {
-        case 'javascript':
-        case 'json':
-            beautifierType = 'js';
-            break;
-        case 'html':
-        case 'xml':
-        case 'svg':
-        case 'php':
-        case 'ejs':
-        case 'handlebars':
-            beautifierType = 'html';
-            break;
-        case 'css':
-        case 'scss':
-        case 'less':
-            beautifierType = 'css';
-            break;
-        default:
-            if (!autoSave) {
-                Dialogs.showModalDialog(DefaultDialogs.DIALOG_ID_ERROR, Strings.UNSUPPORTED_TITLE, Strings.UNSUPPORTED_MESSAGE);
-            }
-            return;
+            case 'javascript':
+            case 'json':
+                beautifierType = 'js';
+                break;
+            case 'html':
+            case 'xml':
+            case 'svg':
+            case 'php':
+            case 'ejs':
+            case 'handlebars':
+                beautifierType = 'html';
+                break;
+            case 'css':
+            case 'scss':
+            case 'less':
+                beautifierType = 'css';
+                break;
+            default:
+                if (!autoSave) {
+                    Dialogs.showModalDialog(DefaultDialogs.DIALOG_ID_ERROR, Strings.UNSUPPORTED_TITLE, Strings.UNSUPPORTED_MESSAGE);
+                }
+                return;
         }
 
         var unformattedText;
