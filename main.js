@@ -33,11 +33,10 @@ define(function (require) {
     var beautifyPrefs = PreferencesManager.getExtensionPrefs(COMMAND_ID);
     var keyBindings = [
         {
-            key: 'Ctrl-Shift-L',
-            platform: 'win'
-        }, {
             key: 'Cmd-Shift-L',
             platform: 'mac'
+        }, {
+            key: 'Ctrl-Shift-L'
         }
     ];
 
