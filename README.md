@@ -8,7 +8,7 @@ This is a fork of [drewhamlett](https://github.com/drewhamlett)'s [brackets-beau
 To install the latest _release_ of this extension use the built-in Brackets [Extension Manager](https://github.com/adobe/brackets/wiki/Brackets-Extensions) which downloads the extension from the [extension registry](https://brackets-registry.aboutweb.com/).
 
 ### Latest Commit
-To install the latest _commit_ of this extension use the built-in Brackets [Extension Manager](https://github.com/adobe/brackets/wiki/Brackets-Extensions) which has a function to `Install from URL...` using this link: https://github.com/Hirse/brackets-outline-list/archive/master.zip.
+To install the latest _commit_ of this extension use the built-in Brackets [Extension Manager](https://github.com/adobe/brackets/wiki/Brackets-Extensions) which has a function to `Install from URL...` using this link: https://github.com/Hirse/brackets-beautify/archive/master.zip.
 
 ## Usage
 Brackets Beautify can be run manually on the whole file or on a selection.
