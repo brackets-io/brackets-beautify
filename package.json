@@ -17,7 +17,7 @@
             "description": "Formatiere JavaScript, HTML, und CSS Dateien und verwandte Sprachen. Dies ist ein Fork von drewhamlett's Beautify extension, der die neueste Version (1.5.10) der js-beautify Bibliothek verwendet."
         }
         "it": {
-            "description": Formato JavaScript, HTML e file CSS e linguaggi affini. Questo è un fork del estensione Beatify di drewhamlett utilizzando l'ultima versione (1.5.10) della libreria js-beatiful"
+            "description": "Formato JavaScript, HTML e file CSS e linguaggi affini. Questo è un fork del estensione Beatify di drewhamlett utilizzando l'ultima versione (1.5.10) della libreria js-beatiful"
         }
     }
 }
