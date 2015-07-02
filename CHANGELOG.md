@@ -4,6 +4,11 @@ This project tries to adhere to [Semantic Versioning](http://semver.org/).
 Changes for version 1.0.0 describe differences to the [original project](https://github.com/drewhamlett/brackets-beautify).
 
 
+## Unreleased
+### Changed
+- Updated Italian Language
+
+
 ## 1.0.2 - 2015-07-01
 ### Fixed
 - Key Binding on Linux
