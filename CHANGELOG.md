@@ -8,6 +8,9 @@ Changes for version 1.0.0 describe differences to the [original project](https:/
 ### Changed
 - Updated Italian Language
 
+## Fixed
+- LivePreview duplication (see [#14](https://github.com/Hirse/brackets-beautify/issues/14))
+
 
 ## 1.0.2 - 2015-07-01
 ### Fixed

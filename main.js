@@ -15,6 +15,7 @@ define(function (require) {
     var FileSystem         = brackets.getModule('filesystem/FileSystem');
     var FileSystemError    = brackets.getModule('filesystem/FileSystemError');
     var LanguageManager    = brackets.getModule('language/LanguageManager');
+    var LiveDevelopment    = brackets.getModule('LiveDevelopment/LiveDevelopment');
     var PreferencesManager = brackets.getModule('preferences/PreferencesManager');
     var ProjectManager     = brackets.getModule('project/ProjectManager');
     var AppInit            = brackets.getModule('utils/AppInit');
@@ -53,17 +54,16 @@ define(function (require) {
         beautifyPrefs.save();
     }
 
-    function batchUpdate(formattedText, isSelection) {
+    function batchUpdate(formattedText, range) {
         var editor = EditorManager.getCurrentFullEditor();
         var cursorPos = editor.getCursorPos();
         var scrollPos = editor.getScrollPos();
-        var doc = DocumentManager.getCurrentDocument();
-        var selection = editor.getSelection();
-        doc.batchOperation(function () {
-            if (isSelection) {
-                doc.replaceRange(formattedText, selection.start, selection.end);
+        var document = DocumentManager.getCurrentDocument();
+        document.batchOperation(function () {
+            if (range) {
+                document.replaceRange(formattedText, range.start, range.end);
             } else {
-                doc.setText(formattedText);
+                document.setText(formattedText);
             }
             editor.setCursorPos(cursorPos);
             editor.setScrollPos(scrollPos.x, scrollPos.y);
@@ -107,16 +107,44 @@ define(function (require) {
             options.indent_size = Editor.getSpaceUnits();
             options.indent_char = ' ';
         }
+        var range;
         if (editor.hasSelection()) {
             options.indentation_level = editor.getSelection().start.ch;
             options.end_with_newline = false;
             unformattedText = editor.getSelectedText();
+            range = editor.getSelection();
         } else {
             unformattedText = document.getText();
+            /*
+             * If the current document is html and is currently used in LiveDevelopment, we must not change the html tag
+             * as that causes the DOM in the browser to duplicate (see https://github.com/adobe/brackets/issues/10634).
+             * To prevent that, we select the content inside <html> if we can find one and pretend a selection for the
+             * formatting and replacing.
+             * NOTE: Currently it is only checked if LiveDevelopment is active in general as I don't know how to check
+             * for a specific file (see https://groups.google.com/forum/#!topic/brackets-dev/9wEtqG684cI).
+             */
+            if (document.getLanguage().getId() === 'html' && LiveDevelopment.status === LiveDevelopment.STATUS_ACTIVE) {
+                // Regex to match everything inside <html> beginning by the first tag and ending at the last
+                var match = /((?:.|\n)*<html[^>]*>\s*)((?:.|\n)*?)(\s*<\/html>)/gm.exec(unformattedText);
+                if (match) {
+                    unformattedText = match[2];
+                    range = {
+                        start: {
+                            line: match[1].split('\n').length - 1,
+                            ch: match[1].length - match[1].lastIndexOf('\n') - 1
+                        },
+                        end: {
+                            line: (match[1] + match[2]).split('\n').length - 1,
+                            ch: (match[1] + match[2]).length - (match[1] + match[2]).lastIndexOf('\n') - 1
+                        }
+                    };
+                    options.end_with_newline = false;
+                }
+            }
         }
         var formattedText = beautifiers[beautifierType](unformattedText, options);
         if (formattedText !== unformattedText) {
-            batchUpdate(formattedText, editor.hasSelection());
+            batchUpdate(formattedText, range);
         }
     }
 
